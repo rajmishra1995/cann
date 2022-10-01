@@ -9,4 +9,4 @@ Update your train.json with appropriate paths to your data,label and weights fil
 How to run:  
 1/ cmake .  
 2/ make  
-3/ ./train <path to your train.json>  
+3/ ./train path_to_your_train.json  
