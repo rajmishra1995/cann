@@ -15,6 +15,22 @@ void NeuralNetwork::saveWeights(string filename){
     o << std::setw(4) << j << endl;
 }
 
+void NeuralNetwork::loadWeights(string filename){
+    std::ifstream i(filename);
+    json jWeights;
+    i >> jWeights;
+
+    vector<vector<vector<double>>> temp = jWeights["weights"];
+
+    for(int i = 0;i < this->weightMatrices.size();i++){
+        for(int r = 0;r < this->weightMatrices.at(i)->getNumRows();r++){
+            for(int c = 0;c < this->weightMatrices.at(i)->getNumCols();c++){
+                this->weightMatrices.at(i)->setValue(r,c, temp.at(i).at(r).at(c));
+            }
+        }
+    }
+}
+
 void NeuralNetwork::setCurrentInput(vector<double> input){
     this->input = input;
 

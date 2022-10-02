@@ -41,6 +41,7 @@ class NeuralNetwork{
         void setNeuronValue(int indexLayer, int indexNeuron, double val) { this->layers.at(indexLayer)->setVal(indexNeuron, val); };
 
         void saveWeights(string file);
+        void loadWeights(string file);
 
         int topologySize;
         int hiddenActivationType = RELU;
